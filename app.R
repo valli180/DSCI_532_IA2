@@ -58,7 +58,7 @@ app$layout(
 app$callback(
   output("bar_chart", "figure"),
   list(
-    input("year_id", "value"),
+    input("year_id", "value")
     #input("dropdown", "value")
   ),
   function(selected_year) {
