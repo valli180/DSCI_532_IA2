@@ -11,8 +11,9 @@ library(dashHtmlComponents)
 df <- read.csv("data/athlete_events.csv")
 df_new <- df %>%
   select(Year, Team, Sport, Medal, Sex) %>%
-  filter(Sport=='Gymnastics')
-countries<- c(unique(df_new$Team))
+  filter(Sport=='Gymnastics')|>
+  filter(Team == "United States")
+#countries<- c(unique(df_new$Team))
 years <- c(unique(df_new$Year))
 
 
@@ -24,12 +25,12 @@ app$layout(
       htmlH1(
         "Olympics Data Analysis"
       ),
-      dbcLabel("Select Country", className = "h7"),
-      dccDropdown(
-        id = "dropdown",
-        options = countries,
-        value = c("United States")
-      ),
+      dbcLabel("United States", className = "h7"),
+      # dccDropdown(
+      #   id = "dropdown",
+      #   options = countries,
+      #   value = c("United States")
+      # ),
       htmlHr(),
       dbcLabel("Select Year", className = "h7"),
       dccSlider(
@@ -58,11 +59,11 @@ app$callback(
   output("bar_chart", "figure"),
   list(
     input("year_id", "value"),
-    input("dropdown", "value")
+    #input("dropdown", "value")
   ),
-  function(selected_year, country) {
+  function(selected_year) {
     p <- ggplot(df_new %>%
-                  filter(Year == selected_year & Team == country)) +
+                  filter(Year == selected_year)) +
       aes(x = Medal,
           fill = Sex,
       ) +
