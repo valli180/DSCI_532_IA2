@@ -11,7 +11,7 @@ library(dashHtmlComponents)
 df <- read.csv("data/athlete_events.csv")
 df_new <- df %>%
   select(Year, Team, Sport, Medal, Sex) %>%
-  filter(Sport=='Gymnastics')|>
+  filter(Sport=='Gymnastics') %>%
   filter(Team == "United States")
 #countries<- c(unique(df_new$Team))
 years <- c(unique(df_new$Year))
