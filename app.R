@@ -1,5 +1,5 @@
 library(dash)
-#library(dashBootstrapComponents)
+library(dashBootstrapComponents)
 library(ggplot2)
 library(plotly)
 library(purrr)
