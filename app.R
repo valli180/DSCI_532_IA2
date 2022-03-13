@@ -1,9 +1,10 @@
 library(dash)
-library(dashBootstrapComponents)
+#library(dashBootstrapComponents)
 library(ggplot2)
 library(plotly)
 library(purrr)
 library(ggthemes)
+library(tidyverse)
 library(dashHtmlComponents)
 
 
